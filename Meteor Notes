@@ -1,0 +1,47 @@
+Meteor
+	- a platform for building a single page application.
+	- a SPA a web application that works in a single page load.
+	- Uses Javascript in all layers. Devs only need to know/use javascript. Simplifies development.
+	- Supported in Mac and Linux.
+	- Uses DDP to talk between client and server
+		- Disctributed data protocol
+			- Publish and sucribe
+			- remove procedure calls
+
+Characteristics
+	- Only uses Javascript. same JS APIs on client and server
+	- Automatic updating of pages
+	- Eliminates need for REST APIs
+	- Latency handling
+	- Self-contained application bundles
+
+Technologies in Meteor
+	- Javascript
+	- Node.js - (meteor uses node.js differently. node.js uses event driven non-blocking I/O model. usually a node application handles an operation in a single thread and handles it asynchronously. In Meteor different instances of node.js is being used so multiple threads are being used. A single thread per request. Meteor uses it's own packaging system.)
+	- MongoDB - Meteor uses both mongodb in client and server. Meteor has a special abstraction over mongoDB that let clients write to db then that data is replicated to server.
+	- Handelbars - templating library. used to we can separate HTML and javascript so we don't have to mix them together.
+
+meteor create <project name>	: create a meteor application
+meteor  						: run server
+
+Meteor App Structure
+
+/client 		- runs on client only
+/server 		- runs on server only
+/private 		- assets for server code only
+/public 		- static assets, fonts, images, etc
+/lib 			- runs before anything else
+/test 			- doesn't run anywhere
+(anything else) - runs on client and server
+main.* 			- runs after evertying else
+
+meteor list 		: lists all the packages in your project
+meteor add <package name> : adds a package to your project
+meteor remove <package name> : removes a package out of your project
+
+Templating
+
+Collections
+
+Publishing
+
