@@ -45,3 +45,25 @@ Collections
 
 Publishing
 
+
+client side caching
+scaling
+
+best practices:
+project structure - not as regimented MVC profile structure
+templates refreshing - semantics of create, rendered and destroyed 
+helpers can be very helpful
+keeping things up to date
+using custom oauth 2.0
+
+
+
+
+moment
+sencha
+jennymotion
+
+discovermeteor.com
+meteor.com/blog
+github.com/meteor/meteor/wiki
+meteorpedia

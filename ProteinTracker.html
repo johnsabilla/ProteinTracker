@@ -3,11 +3,14 @@
 </head>
 
 <body>
-	<h1>Protein Tracker</h1>
-	{{> userDetails}}
+	<h1>Caffeine Tracker</h1> {{> loginButtons}}
 
-	<h2> Last 5 Entriest </h2>
-	{{> history}}
+	{{#if currentUser}}
+		{{> userDetails}}
+		<h2> Last 5 Entriest </h2>
+		{{> history}}
+	{{/if}}
+
 </body>
 
 <template name="userDetails">
@@ -15,7 +18,9 @@
 	<h2> Total: <span> {{total}} </span></h2>
 	<h2> Goal: <span> {{goal}} </span></h2>
 	<h3> Enter amount: </h3>
-	<input id="amount" type="text" />
+	{{/with}}
+	<input id="amount" type="text" value="{{lastAmount}}"/>
+	{{#with user}}
 	<input id="addAmount" type="submit" value="Add Protein" />
 	{{/with}}
 </template>
