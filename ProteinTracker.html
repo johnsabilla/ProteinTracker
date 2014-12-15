@@ -3,30 +3,92 @@
 </head>
 
 <body>
-	<h1>Caffeine Tracker</h1> {{> loginButtons}}
-
+	<div class="navbar navbar-inverse navbar-fixed-top">
+       <div class="navbar-inner">
+         <div class="container">
+           <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+           </button>
+           <a class="brand" href="#">Caffeine Tracker</a>
+           <div class="nav-collapse collapse">
+             <ul class="nav">
+               <li class="active"><a href="#">Home</a></li>
+               <li><a href="#contact">{{> loginButtons }}</a></li>
+             </ul>
+           </div><!--/.nav-collapse -->
+         </div>
+       </div>
+     </div>
+	<div>
+	<br/>
+	<br/>
 	{{#if currentUser}}
 		{{> userDetails}}
-		<h2> Last 5 Entriest </h2>
+		<h5> Last 5 Entries </h5>
 		{{> history}}
+		<br/>
+		<br/>
 	{{/if}}
+	</div>
 
 </body>
 
 <template name="userDetails">
 	{{#with user}}
-	<h2> Total: <span> {{total}} </span></h2>
-	<h2> Goal: <span> {{goal}} </span></h2>
-	<h3> Enter amount: </h3>
+		<h5> Total Caffeine: <span> {{total}} mg</span></h5>
+		<h5> Goal: <span> {{goal}} mg </span></h5>
+		<h5> Enter amount: </h5>
 	{{/with}}
-	<input id="amount" type="text" value="{{lastAmount}}"/>
+
+	<input placeholder="Add Protein" class="form-control input-sm" id="amount" type="text" value="{{lastAmount}}"/>
+	
 	{{#with user}}
-	<input id="addAmount" type="submit" value="Add Protein" />
+		<input class="btn btn-info btn-sm" id="addAmount" type="submit" value="Add Protein" /><br/>
+	{{/with}}
+	
+	<input placeholder="Update Goal" id="goal" type="text" value="{{goal}}"/>
+	
+	{{#with user}}
+		<input class="btn btn-info btn-sm" id="updateGoal" type="submit" value="Update Goal"/><br/>
 	{{/with}}
 </template>
 
+<!-- <template name="history">
+	<div id="historyList">
+		<div class="list-group">
+			{{#each historyItem}}
+				<a class="list-group-item list-group-item-info"> {{date}} - {{value}}mg - {{goal}}mg</a><br/>
+			{{/each}}
+		</div>
+	</div>
+</template> -->
+
 <template name="history">
-	{{#each historyItem}}
-	<p> {{date}} - {{value}}</p>
-	{{/each}}
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Time </th>
+				<th>Caffeine Amount</th>
+				<th>Goal Amount</th>
+			</tr>
+		</thead>
+		<tbody>
+			{{#each historyItem}}
+				<tr>
+					<td> {{date}} </td>
+					<td> {{value}}mg </td>
+					<td> {{goal}}mg </td>
+				</tr>
+			{{/each}}
+		</tbody>
+	</table>
 </template>
+
+
+<template name="columnDemo">
+<h2>columnDemo</h2>
+<div id="container-column" style="min-width: 310px; height: 400px;"></div>
+</template>
+
